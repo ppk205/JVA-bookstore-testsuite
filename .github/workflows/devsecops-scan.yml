@@ -25,6 +25,8 @@ jobs:
   scan:
     name: Scan (${{ matrix.profile }})
     runs-on: ubuntu-latest
+    # The agent token is stored as a secret of this environment.
+    environment: AGENT_REPO_TOKEN
     timeout-minutes: 120
     strategy:
       fail-fast: false
