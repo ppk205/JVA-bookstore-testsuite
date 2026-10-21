@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "run_id": "run-5de1b474f6d74876ac5bebc725450fc6",
+  "tool": "owasp-dependency-check",
+  "tool_version": "unknown",
+  "adapter_version": "0.2.0",
+  "status": "failed",
+  "started_at": "2026-10-21T03:28:02.154504Z",
+  "finished_at": "2026-10-21T03:28:02.154504Z",
+  "observations": [],
+  "coverage_records": [],
+  "raw_output_refs": [],
+  "coverage_percent": 0.0,
+  "eligible_units": 0,
+  "analyzed_units": 0,
+  "skipped_units": 0,
+  "failed_units": 0,
+  "errors": [
+    "Advisory initialization failed (exit 8, timeout=False): va:50)\n\tat org.owasp.dependencycheck.utils.SaveToFileResponseHandler.handleEntity(SaveToFileResponseHandler.java:32)\n\tat org.apache.hc.client5.http.impl.classic.AbstractHttpClientResponseHandler.handleResponse(AbstractHttpClientResponseHandler.java:71)\n\tat org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:247)\n\tat org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:188)\n\tat org.owasp.dependencycheck.utils.Downloader.fetchFile(Downloader.java:410)\n\t... 7 common frames omitted\n\tSuppressed: org.apache.hc.core5.http.ConnectionClosedException: Premature end of Content-Length delimited message body (expected: 36949962; received: 3515595)\n\t\tat org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178)\n\t\tat org.apache.hc.core5.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:196)\n\t\tat org.apache.hc.core5.http.impl.io.ContentLengthInputStream.close(ContentLengthInputStream.java:101)\n\t\tat org.apache.hc.core5.io.Closer.close(Closer.java:48)\n\t\tat org.apache.hc.core5.http.impl.io.support.IncomingHttpEntity.close(IncomingHttpEntity.java:114)\n\t\tat org.apache.hc.core5.http.io.entity.HttpEntityWrapper.close(HttpEntityWrapper.java:120)\n\t\tat org.apache.hc.client5.http.impl.classic.ResponseEntityProxy.close(ResponseEntityProxy.java:180)\n\t\tat org.apache.hc.core5.io.Closer.close(Closer.java:48)\n\t\tat org.apache.hc.core5.http.message.BasicClassicHttpResponse.close(BasicClassicHttpResponse.java:93)\n\t\tat org.apache.hc.client5.http.impl.classic.CloseableHttpResponse.lambda$new$0(CloseableHttpResponse.java:95)\n\t\tat org.apache.hc.client5.http.impl.classic.CloseableHttpResponse.doClose(CloseableHttpResponse.java:236)\n\t\tat org.apache.hc.client5.http.impl.classic.CloseableHttpResponse.close(CloseableHttpResponse.java:252)\n\t\tat org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:263)\n\t\t... 9 common frames omitted"
+  ],
+  "warnings": [],
+  "duration_ms": null,
+  "metadata": {}
+}
