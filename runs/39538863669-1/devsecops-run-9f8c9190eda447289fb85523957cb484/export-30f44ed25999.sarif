@@ -1,0 +1,264 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "automationDetails": {
+        "id": "run-9f8c9190eda447289fb85523957cb484"
+      },
+      "tool": {
+        "driver": {
+          "name": "devsecops-agent",
+          "version": "0.3.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-sql-concatenation",
+          "ruleName": "CWE-89 at src/main/java/dao/CartDAO.java:506",
+          "level": "error",
+          "message": {
+            "text": "SQL constructed through concatenation; use a parameterized query."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dao/CartDAO.java"
+                },
+                "region": {
+                  "startLine": 506,
+                  "endLine": 515,
+                  "startColumn": 21,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "9c32bb1d37e003b4d4ef31bdaa0a736400faa7dc8eccd42652f951517dbc85ab"
+          },
+          "properties": {
+            "findingId": "9c32bb1d37e003b4",
+            "cwe": "CWE-89"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-sql-concatenation",
+          "ruleName": "CWE-89 at src/main/java/dao/CartDAO.java:540",
+          "level": "error",
+          "message": {
+            "text": "SQL constructed through concatenation; use a parameterized query."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dao/CartDAO.java"
+                },
+                "region": {
+                  "startLine": 540,
+                  "endLine": 549,
+                  "startColumn": 21,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "85450a1a69f7ada1b1159d0af52a7cba5a65bb63c14de13adc07223db4785e73"
+          },
+          "properties": {
+            "findingId": "85450a1a69f7ada1",
+            "cwe": "CWE-89"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-sql-concatenation",
+          "ruleName": "CWE-89 at src/main/java/dao/ShipperDAO.java:86",
+          "level": "error",
+          "message": {
+            "text": "SQL constructed through concatenation; use a parameterized query."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dao/ShipperDAO.java"
+                },
+                "region": {
+                  "startLine": 86,
+                  "endLine": 89,
+                  "startColumn": 17,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "a5132ef326dab33eaff761a85c72b56ef0d1e8e9777915d89a1ab24540f279a1"
+          },
+          "properties": {
+            "findingId": "a5132ef326dab33e",
+            "cwe": "CWE-89"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-sql-concatenation",
+          "ruleName": "CWE-89 at src/main/java/dao/ShipperDAO.java:91",
+          "level": "error",
+          "message": {
+            "text": "SQL constructed through concatenation; use a parameterized query."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dao/ShipperDAO.java"
+                },
+                "region": {
+                  "startLine": 91,
+                  "endLine": 101,
+                  "startColumn": 17,
+                  "endColumn": 86
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "5243ef22091adb0e3f2e7e71d14026557a3a539d4b7c165e850ea00edb38d998"
+          },
+          "properties": {
+            "findingId": "5243ef22091adb0e",
+            "cwe": "CWE-89"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-sql-concatenation",
+          "ruleName": "CWE-89 at src/main/java/dao/UserAddressDAO.java:206",
+          "level": "error",
+          "message": {
+            "text": "SQL constructed through concatenation; use a parameterized query."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dao/UserAddressDAO.java"
+                },
+                "region": {
+                  "startLine": 206,
+                  "endLine": 224,
+                  "startColumn": 17,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "a1ce7859b69b0a5f7cf840d1692de2308ee19d03f63a511deb9cd4365ca46537"
+          },
+          "properties": {
+            "findingId": "a1ce7859b69b0a5f",
+            "cwe": "CWE-89"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-insecure-random",
+          "ruleName": "CWE-330 at src/main/java/utils/DBUtil.java:800",
+          "level": "warning",
+          "message": {
+            "text": "java.util.Random is predictable in security contexts; use SecureRandom."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/utils/DBUtil.java"
+                },
+                "region": {
+                  "startLine": 800,
+                  "endLine": 800,
+                  "startColumn": 37,
+                  "endColumn": 76
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "7d1a1cfd9d7509af40af7588fcea82be8c1271a623c4cbf3e647c51efab98348"
+          },
+          "properties": {
+            "findingId": "7d1a1cfd9d7509af",
+            "cwe": "CWE-330"
+          }
+        },
+        {
+          "ruleId": "home.runner.work._temp.devsecops-agent-venv.lib.python3.11.site-packages.vulnscan.scanners.rules.java-insecure-random",
+          "ruleName": "CWE-330 at src/main/java/utils/OTPUtil.java:18",
+          "level": "warning",
+          "message": {
+            "text": "java.util.Random is predictable in security contexts; use SecureRandom."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/utils/OTPUtil.java"
+                },
+                "region": {
+                  "startLine": 18,
+                  "endLine": 18,
+                  "startColumn": 25,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primary": "c491c4c6185517d8ecba80bf24b4989dca3b6c9594a1f5f674634e1050f60d69"
+          },
+          "properties": {
+            "findingId": "c491c4c6185517d8",
+            "cwe": "CWE-330"
+          }
+        }
+      ],
+      "artifacts": [],
+      "properties": {
+        "counts": {
+          "version": "0.1.0",
+          "total": 7,
+          "confirmed": 0,
+          "rejected": 0,
+          "unresolved": 0,
+          "unprocessed": 7
+        },
+        "commit": "7eaea688c3ba2476fb92e23ba80173d7c3f28c9b",
+        "target": "local",
+        "status": "completed",
+        "gate": "passed",
+        "errors": [],
+        "configuration": {
+          "schema_version": 1,
+          "profile": "fast",
+          "fail_on": "none",
+          "output_dir": "/home/runner/work/_temp/reports",
+          "timezone": "Asia/Saigon",
+          "timeout": 600,
+          "max_files": 100000,
+          "allow_dirty": false,
+          "ci": true,
+          "laya": false,
+          "laya_config_path": null
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ]
+    }
+  ]
+}
