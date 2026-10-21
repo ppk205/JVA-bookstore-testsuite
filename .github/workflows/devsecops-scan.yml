@@ -1,0 +1,114 @@
+name: DevSecOps scan
+
+# Runs the DevSecOps-Agent composite Action on this repository with the fast
+# and full profiles, then commits the sanitized reports to the ci-results
+# branch so they can be fetched with plain git. Comparison of the two profiles
+# is a later step; this workflow only produces the raw results.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: devsecops-scan-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  # DevSecOps-Agent v0.3.0
+  AGENT_REF: 8750f5b7e4da0027f6c8f3231b2acd3fbebb186f
+
+jobs:
+  scan:
+    name: Scan (${{ matrix.profile }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [fast, full]
+    steps:
+      - name: Require agent access token
+        env:
+          TOKEN: ${{ secrets.AGENT_REPO_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Secret AGENT_REPO_TOKEN is missing. Add a fine-grained token with read-only Contents access to ppk205/DevSecOps-Agent."
+            exit 2
+          fi
+
+      - name: Check out target
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          path: target
+          persist-credentials: false
+
+      - name: Check out DevSecOps-Agent
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          repository: ppk205/DevSecOps-Agent
+          ref: ${{ env.AGENT_REF }}
+          token: ${{ secrets.AGENT_REPO_TOKEN }}
+          path: .devsecops-agent
+          persist-credentials: false
+
+      - name: Scan
+        id: scan
+        uses: ./.devsecops-agent
+        with:
+          checkout-path: target
+          profile: ${{ matrix.profile }}
+          # Findings must not fail the run; execution and coverage failures still do.
+          fail-on: none
+          output-directory: ${{ runner.temp }}/reports
+
+  publish:
+    name: Publish results
+    needs: scan
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download scan evidence
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        continue-on-error: true
+        with:
+          pattern: devsecops-*
+          path: results
+
+      - name: Commit results to ci-results branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SCAN_RESULT: ${{ needs.scan.result }}
+        run: |
+          set -euo pipefail
+          run_dir="runs/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git init -q out
+          cd out
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q --depth 1 origin ci-results; then
+            git checkout -q -b ci-results FETCH_HEAD
+          else
+            git checkout -q --orphan ci-results
+          fi
+          mkdir -p "$run_dir"
+          if [ -d ../results ]; then cp -r ../results/. "$run_dir/"; fi
+          cat > "$run_dir/run.json" <<EOF
+          {
+            "workflow_run_id": "${GITHUB_RUN_ID}",
+            "attempt": "${GITHUB_RUN_ATTEMPT}",
+            "target_commit": "${GITHUB_SHA}",
+            "agent_ref": "${AGENT_REF}",
+            "scan_job_result": "${SCAN_RESULT}"
+          }
+          EOF
+          git add -A
+          git commit -q -m "Scan results for run ${GITHUB_RUN_ID} (${GITHUB_SHA::7})"
+          git push -q origin ci-results
+          echo "Results committed to ci-results/${run_dir}" >> "$GITHUB_STEP_SUMMARY"
