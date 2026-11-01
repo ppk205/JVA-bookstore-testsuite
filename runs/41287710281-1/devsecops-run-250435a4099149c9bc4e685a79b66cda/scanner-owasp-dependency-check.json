@@ -1,0 +1,1449 @@
+{
+  "version": "0.1.0",
+  "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+  "tool": "owasp-dependency-check",
+  "tool_version": "dependency-check-cli version 13.0.0",
+  "adapter_version": "0.2.0",
+  "status": "completed",
+  "started_at": "2026-11-01T08:16:27.302222Z",
+  "finished_at": "2026-11-01T08:16:35.630917Z",
+  "observations": [
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-7e74ded11a7e0915",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2025-48734",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "high",
+      "native_severity": "cvss=8.8",
+      "message": "Improper Access Control vulnerability in Apache Commons.\n\n\n\nA special BeanIntrospector class was added in version 1.9.2. This can be used to stop attackers from using the declared class property of Java enum objects to get access to the classloader. However this protection was not enabled by default. PropertyUtilsBean (and consequently BeanUtilsBean) now disallows declared class level property access by default.\n\n\n\n\n\nReleases 1.11.0 and 2.0.0-M2 address a potential security issue when accessing enum properties in an uncontrolled way. If an application using Commons BeanUtils passes property paths from an external source directly to the getProperty() method of PropertyUtilsBean, an attacker can access the enum’s class loader via the “declaredClass” property available on all Java “enum” objects. Accessing the enum’s “declaredClass” allows remote attackers to access the ClassLoader and execute arbitrary code. The same issue exists with PropertyUtilsBean.getNestedProperty().\nStarting in ve",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "commons-beanutils-1.9.4.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "commons-beanutils-1.9.4.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 8.8,
+        "vulnerability_id": "CVE-2025-48734"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-da489630e63bfbe3",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2025-48924",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "medium",
+      "native_severity": "cvss=5.3",
+      "message": "Uncontrolled Recursion vulnerability in Apache Commons Lang.\n\nThis issue affects Apache Commons Lang: Starting with commons-lang:commons-lang 2.0 to 2.6, and, from org.apache.commons:commons-lang3 3.0 before 3.18.0.\n\nThe methods ClassUtils.getClass(...) can throw StackOverflowError on very long inputs. Because an Error is usually not handled by applications and libraries, a \nStackOverflowError could cause an application to stop.\n\nUsers are recommended to upgrade to version 3.18.0, which fixes the issue.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "commons-lang3-3.13.0.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "commons-lang3-3.13.0.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 5.3,
+        "vulnerability_id": "CVE-2025-48924"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-f4ba080b0569adbf",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2026-54512",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": "CWE-502",
+      "severity": "high",
+      "native_severity": "cvss=8.1",
+      "message": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. From 2.10.0 until 2.18.8, 2.21.4, and 3.1.4, jackson-databind's PolymorphicTypeValidator (PTV) is the primary safety mechanism guarding polymorphic deserialization. When polymorphic typing is enabled and a type identifier contains generic parameters (i.e. the type ID string contains <), DatabindContext._resolveAndValidateGeneric() validates only the raw container class name (the substring before <) against the configured PTV. If the container type is approved, the method parses the full canonical type string via TypeFactory.constructFromCanonical() and returns the fully parameterized type without ever validating the nested type arguments against the PTV. The nested type arguments are then resolved, instantiated, and populated as beans during deserialization. An attacker who controls the type ID can therefore place a denied class as a generic type parameter of an allowed c",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jackson-databind-2.15.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jackson-databind-2.15.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 8.1,
+        "vulnerability_id": "CVE-2026-54512"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-aaf6202da8973299",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2026-54513",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "high",
+      "native_severity": "cvss=8.1",
+      "message": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. From 2.10.0 until 2.18.8, 2.21.4, and 3.1.4, BasicPolymorphicTypeValidator.Builder.allowIfSubTypeIsArray() allowlists any array type based only on clazz.isArray(), without validating the array's component (element) type against the configured allowlist. A PTV built with allowIfSubTypeIsArray() plus an explicit concrete-type allowlist therefore still permits EvilType[] even though EvilType is not allowlisted. When Jackson deserializes the elements and no per-element type IDs are present, it instantiates the component type directly with no further PTV check, bypassing the allowlist. This vulnerability is fixed in 2.18.8, 2.21.4, and 3.1.4.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jackson-databind-2.15.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jackson-databind-2.15.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 8.1,
+        "vulnerability_id": "CVE-2026-54513"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-cfe43fa1df0ac549",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2026-54514",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "medium",
+      "native_severity": "cvss=5.3",
+      "message": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. From 2.0.0 until 2.18.8, 2.21.4, and 3.1.4, JDKFromStringDeserializer constructed InetSocketAddress with new InetSocketAddress(host, port), which performs eager DNS name resolution for hostname inputs at deserialization time. An application that binds untrusted JSON into a type containing an InetSocketAddress field issues an attacker-chosen DNS query during readValue, before any application-level validation or connect logic. The fix uses InetSocketAddress.createUnresolved(host, port), deferring DNS to an explicit connect. This vulnerability is fixed in 2.18.8, 2.21.4, and 3.1.4.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jackson-databind-2.15.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jackson-databind-2.15.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 5.3,
+        "vulnerability_id": "CVE-2026-54514"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-e6804dc329b45fca",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2026-54515",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "medium",
+      "native_severity": "cvss=5.3",
+      "message": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. From 2.8.0 until 2.18.9, 2.21.5, and 3.1.4, in BeanDeserializerBase.createContextual(), per-property @JsonIgnoreProperties exclusions are applied by _handleByNameInclusion(), producing a contextual deserializer whose BeanPropertyMap has the ignored properties removed. The subsequent per-property case-insensitivity block (triggered by @JsonFormat(ACCEPT_CASE_INSENSITIVE_PROPERTIES)) rebuilds from this._beanProperties (the original, unfiltered map) instead of contextual._beanProperties, then overwrites the filtered map — restoring every property _handleByNameInclusion had just removed. The ignored property becomes writable again. This vulnerability is fixed in 2.18.9, 2.21.5, and 3.1.4.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jackson-databind-2.15.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jackson-databind-2.15.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 5.3,
+        "vulnerability_id": "CVE-2026-54515"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-68a9a93b1450eec0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2023-35116",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "medium",
+      "native_severity": "cvss=4.7",
+      "message": "jackson-databind through 2.15.2 allows attackers to cause a denial of service or other unspecified impact via a crafted object that uses cyclic dependencies. NOTE: the vendor's perspective is that this is not a valid vulnerability report, because the steps of constructing a cyclic data structure and trying to serialize it cannot be achieved by an external attacker.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jackson-databind-2.15.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jackson-databind-2.15.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 4.7,
+        "vulnerability_id": "CVE-2023-35116"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-e2d04b9dcfb11277",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2015-0254",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "high",
+      "native_severity": "undetermined",
+      "message": "Apache Standard Taglibs before 1.2.3 allows remote attackers to execute arbitrary code or conduct external XML entity (XXE) attacks via a crafted XSLT extension in a (1) <x:parse> or (2) <x:transform> JSTL XML tag.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "jstl-1.2.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "jstl-1.2.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": null,
+        "vulnerability_id": "CVE-2015-0254"
+      }
+    },
+    {
+      "version": "0.1.0",
+      "observation_id": "obs-7c9a35a1b14f708b",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "rule_id": "CVE-2026-42198",
+      "rule_pack_version": "0.2.0",
+      "cwe_category": null,
+      "severity": "high",
+      "native_severity": "cvss=7.5",
+      "message": "pgjdbc is an open source postgresql JDBC Driver. From version 42.2.0 to before version 42.7.11, pgjdbc is vulnerable to a client-side denial of service during SCRAM-SHA-256 authentication. A malicious server can instruct the driver to perform SCRAM authentication with a very large iteration count. With a large enough value, the client spends an unbounded amount of CPU time inside PBKDF2 before authentication can fail. A single attempt ties up a CPU core. Repeated or concurrent attempts exhaust client CPU and can wedge connection pools. In affected versions, loginTimeout did not fully mitigate this problem. When loginTimeout expired, the caller could stop waiting, but the worker thread performing the connection attempt could continue running and burning CPU inside the SCRAM PBKDF2 computation. This issue has been patched in version 42.7.11.",
+      "confidence": 1.0,
+      "location": {
+        "version": "0.1.0",
+        "file_path": "postgresql-42.7.3.jar",
+        "language": "other",
+        "line_start": 1,
+        "line_end": null,
+        "column_start": null,
+        "column_end": null,
+        "symbol": null,
+        "snippet": null
+      },
+      "dependency_identity": "postgresql-42.7.3.jar",
+      "raw_output_ref": "/home/runner/work/_temp/reports/run-250435a4099149c9bc4e685a79b66cda/scanner-owasp-dependency-check.json",
+      "detected_at": "2026-11-01T08:16:35.633157Z",
+      "metadata": {
+        "cvss": 7.5,
+        "vulnerability_id": "CVE-2026-42198"
+      }
+    }
+  ],
+  "coverage_records": [
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdAccount.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdCategory.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdCommission.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdDashboard.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdProduct.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdPromotion.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdShipper.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "AdSupportChat.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "SellerDashboard.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "SellerOrders.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "SellerProduct.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "activation-1.1.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 17 vendor, 11 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "admin.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "api-client.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "app-shell.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "cart-client.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "cart-ui.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "catalog-page.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "checker-qual-3.42.0.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 23 vendor, 23 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "checkout-page.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "cloudflared.exe",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 1 vendor, 1 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-beanutils-1.9.4.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 81 vendor, 81 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-collections-3.2.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 39 vendor, 39 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-collections4-4.4.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 50 vendor, 50 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-lang3-3.13.0.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 68 vendor, 69 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-logging-1.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 56 vendor, 56 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "commons-text-1.11.0.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 33 vendor, 34 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "global-search.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "gson-2.10.1.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 14 vendor, 15 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "home-page.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jackson-core-2.15.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 20 vendor, 22 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jackson-databind-2.15.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 17 vendor, 19 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "javax.mail-1.6.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 20 vendor, 17 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "javax.servlet-api-4.0.1.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 23 vendor, 20 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jbcrypt-0.4.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 13 vendor, 13 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jjwt-api-0.12.3.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 14 vendor, 14 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jjwt-impl-0.12.3.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 16 vendor, 16 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jjwt-jackson-0.12.3.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 16 vendor, 16 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jstl-1.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 19 vendor, 15 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "opencsv-5.9.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 15 vendor, 16 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "postgresql-42.7.3.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 32 vendor, 34 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "sitemesh-2.4.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 12 vendor, 10 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "support-chat.js",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": "dependency_graph",
+      "diagnostics": [
+        "evidence: 0 vendor, 0 product"
+      ],
+      "unresolved_calls": [],
+      "cwe_capabilities": [
+        "CWE-1104"
+      ],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.633157Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "jackson-annotations-2.15.2.jar",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "not_processed",
+      "limitation_reason": "Resolved Maven artifact is missing from the scanner report",
+      "extraction_mode": null,
+      "diagnostics": [],
+      "unresolved_calls": [],
+      "cwe_capabilities": [],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.634242Z",
+      "miss_reasons": [],
+      "metadata": {}
+    },
+    {
+      "version": "0.1.0",
+      "run_id": "run-250435a4099149c9bc4e685a79b66cda",
+      "tool": "owasp-dependency-check",
+      "tool_version": "dependency-check-cli version 13.0.0",
+      "source_snapshot": "b2529ad467f68d3ba9c4859a470bc217e3a2b476",
+      "unit_path": "pom.xml",
+      "unit_language": "other",
+      "eligible": true,
+      "status": "analyzed",
+      "limitation_reason": null,
+      "extraction_mode": null,
+      "diagnostics": [],
+      "unresolved_calls": [],
+      "cwe_capabilities": [],
+      "cwe_limitations": [],
+      "duration_ms": null,
+      "analyzed_at": "2026-11-01T08:16:35.634272Z",
+      "miss_reasons": [],
+      "metadata": {}
+    }
+  ],
+  "raw_output_refs": [],
+  "coverage_percent": 97.77777777777777,
+  "eligible_units": 45,
+  "analyzed_units": 44,
+  "skipped_units": 0,
+  "failed_units": 1,
+  "errors": [],
+  "warnings": [],
+  "duration_ms": 7876,
+  "metadata": {
+    "advisory_data_sources": [
+      {
+        "name": "NVD API Last Checked",
+        "timestamp": "2026-11-01T08:12:20Z"
+      },
+      {
+        "name": "NVD API Last Modified",
+        "timestamp": "2026-11-01T01:00:46-05"
+      },
+      {
+        "name": "NVD Cache Last Checked",
+        "timestamp": "2026-11-01T08:12:20Z"
+      },
+      {
+        "name": "NVD Cache Last Modified",
+        "timestamp": "2026-11-01T01:00:46-05"
+      }
+    ],
+    "advisory_database_sha256": "d03ba1efe5b42f650725f6c2f2f32160db8201e7e23accb08e2f16290995a876"
+  }
+}
