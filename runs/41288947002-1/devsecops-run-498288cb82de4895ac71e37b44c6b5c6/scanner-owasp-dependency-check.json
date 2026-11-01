@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "run_id": "run-498288cb82de4895ac71e37b44c6b5c6",
+  "tool": "owasp-dependency-check",
+  "tool_version": "unknown",
+  "adapter_version": "0.2.0",
+  "status": "failed",
+  "started_at": "2026-11-01T08:29:27.748577Z",
+  "finished_at": "2026-11-01T08:29:27.748577Z",
+  "observations": [],
+  "coverage_records": [],
+  "raw_output_refs": [],
+  "coverage_percent": 0.0,
+  "eligible_units": 0,
+  "analyzed_units": 0,
+  "skipped_units": 0,
+  "failed_units": 0,
+  "errors": [
+    "Advisory initialization failed (exit 8, timeout=False): nection()\" because \"this.connectionPool\" is null\n\tat org.owasp.dependencycheck.data.nvdcve.DatabaseManager.getConnection(DatabaseManager.java:574)\n\tat org.owasp.dependencycheck.data.nvdcve.CveDB.updateOrInsertVulnerability(CveDB.java:1178)\n\tat org.owasp.dependencycheck.data.nvdcve.CveDB.updateVulnerability(CveDB.java:1103)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.updateCveDb(NvdApiProcessor.java:119)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:102)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:40)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)\n\tat java.base/java.lang.Thread.run(Thread.java:840)\n[ERROR] Failed to process CVE-2012-4408\njava.lang.NullPointerException: Cannot invoke \"org.apache.commons.dbcp2.BasicDataSource.getConnection()\" because \"this.connectionPool\" is null\n\tat org.owasp.dependencycheck.data.nvdcve.DatabaseManager.getConnection(DatabaseManager.java:574)\n\tat org.owasp.dependencycheck.data.nvdcve.CveDB.updateOrInsertVulnerability(CveDB.java:1178)\n\tat org.owasp.dependencycheck.data.nvdcve.CveDB.updateVulnerability(CveDB.java:1103)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.updateCveDb(NvdApiProcessor.java:119)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:102)\n\tat org.owasp.dependencycheck.data.update.nvd.api.NvdApiProcessor.call(NvdApiProcessor.java:40)\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)\n\tat java.base/java.lang.Thread.run(Thread.java:840)"
+  ],
+  "warnings": [],
+  "duration_ms": null,
+  "metadata": {}
+}

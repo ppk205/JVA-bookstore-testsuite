@@ -1,0 +1,7 @@
+{
+  "workflow_run_id": "41288947002",
+  "attempt": "1",
+  "target_commit": "9ec0084431feac073924938d00f6a66991eb51bf",
+  "agent_ref": "8750f5b7e4da0027f6c8f3231b2acd3fbebb186f",
+  "scan_job_result": "failure"
+}
